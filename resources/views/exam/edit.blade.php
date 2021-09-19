@@ -8,7 +8,7 @@
 <div class="mt-2">
     <p>Date Visit: {{ $opdcard->date_visit }}</p>
     <p>HN: {{ $opdcard->hn }} {{ $opdcard->patient_name }} {{ $opdcard->gender }} {{ $opdcard->age_at_visit }} Yo</p>
-    <p>Triage: {{ $opdcard->triage }} BP: {{ $opdcard->bp }} BT: {{ $opdcard->body_temperature }} BW: {{ $opdcard->weight }} Ht: {{ $opdcard->height }}</p>
+    <p>Triage: {{ $opdcard->triage_text }} BP: {{ $opdcard->bp }} BT: {{ $opdcard->body_temperature }} BW: {{ $opdcard->weight }} Ht: {{ $opdcard->height }}</p>
 </div>
 <hr>
 <form action="{{ url('/exam/' . $opdcard->id) }}" method="POST" class="mt-2">
