@@ -13,7 +13,7 @@ Route::get('/', [OPDCardsController::class, 'index'])
 Route::get('/create', [OPDCardsController::class, 'create'])
      ->middleware('auth', 'can:create_case');
 Route::post('/', [OPDCardsController::class, 'store'])
-     ->middleware('auth');
+     ->middleware('auth', 'can:create_case');
 Route::delete('/{opdcard}', [OPDCardsController::class, 'destroy'])
      ->middleware('auth');
 
@@ -23,9 +23,9 @@ Route::patch('/triage/{opdcard}', [TriageController::class, 'update'])
      ->middleware('auth');
 
 Route::get('/exam/{opdcard}/edit', [ExamController::class, 'edit'])
-     ->middleware('auth');
+     ->middleware('auth', 'can:exam_case,opdcard');
 Route::patch('/exam/{opdcard}', [ExamController::class, 'update'])
-     ->middleware('auth');
+     ->middleware('auth', 'can:exam_case,opdcard');
 
 Route::patch('/discharge/{opdcard}', [DischargeController::class, 'update'])
      ->middleware('auth');

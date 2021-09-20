@@ -32,7 +32,11 @@
         DISCHARGED
         @else
         <button style="margin-right: 1rem;"><a style="text-decoration: none;" href="{{ url('/triage/' . $card->id) . '/edit' }}">Triage</a></button>
-        <button style="margin-right: 1rem;"><a style="text-decoration: none;" href="{{ url('/exam/' . $card->id) . '/edit' }}">Exam</a></button>
+        @can('exam_case', $card)
+        <button style="margin-right: 1rem;">
+            <a style="text-decoration: none;" href="{{ url('/exam/' . $card->id) . '/edit' }}">Exam</a>
+        </button>
+        @endcan
         <form action="{{ url('/discharge/' . $card->id) }}" method="POST" style="display: inline;">
             @csrf
             @method('patch')
