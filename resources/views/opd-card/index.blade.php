@@ -5,9 +5,12 @@
 
 @section('content')
 
+@can('create_case')
 <button style="margin-right: 1rem;">
     <a href="{{ url('/create') }}">New Case</a>
 </button>
+@endcan
+
 @if(session('message'))
 <span style="color: green;">{{ session('message') }}</span>
 @endif
