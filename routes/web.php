@@ -23,9 +23,9 @@ Route::patch('/triage/{opdcard}', [TriageController::class, 'update'])
      ->middleware('auth');
 
 Route::get('/exam/{opdcard}/edit', [ExamController::class, 'edit'])
-     ->middleware('auth','can:exam-case,opdcard');
+     ->middleware('auth','can:exam,opdcard');
 Route::patch('/exam/{opdcard}', [ExamController::class, 'update'])
-     ->middleware('auth');
+     ->middleware('auth','can:exam,opdcard');
 
 Route::patch('/discharge/{opdcard}', [DischargeController::class, 'update'])
      ->middleware('auth');

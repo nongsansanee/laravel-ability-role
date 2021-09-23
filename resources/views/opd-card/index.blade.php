@@ -32,7 +32,7 @@
         DISCHARGED
         @else
         <button style="margin-right: 1rem;"><a style="text-decoration: none;" href="{{ url('/triage/' . $card->id) . '/edit' }}">Triage</a></button>
-        @can('exam_case', $card)
+        @can('exam', $card)
         <button style="margin-right: 1rem;">
             <a style="text-decoration: none;" href="{{ url('/exam/' . $card->id) . '/edit' }}">Exam</a>
         </button>

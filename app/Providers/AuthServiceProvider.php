@@ -15,7 +15,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+       'App\Models\OPDCard' => 'App\Policies\OPDCardPolicy',
     ];
 
     /**
@@ -31,10 +31,12 @@ class AuthServiceProvider extends ServiceProvider
                 return $user->email === 'officer@med.si';
         });
 
-        Gate::define('exam_case',function(User $user, OPDCard $opdcard){
-            //\Log::info('111111');
+        Gate::define('exam',function(User $user, OPDCard $opdcard){
+                \Log::info('1111');
                 return $opdcard->triage;
-               //return false;
+                //return flase;
         });
+
+      
     }
 }
