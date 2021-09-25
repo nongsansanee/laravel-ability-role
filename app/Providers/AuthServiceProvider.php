@@ -27,15 +27,29 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('create-case',function(User $user){
-                return $user->email === 'officer@med.si';
+        Gate::before(function($user,$ability){
+            if($user->abilities->contains($ability)){
+                return true;
+            }
         });
 
-        Gate::define('exam',function(User $user, OPDCard $opdcard){
-                \Log::info('1111');
-                return $opdcard->triage;
-                //return flase;
-        });
+        // Gate::define('create-case',function(User $user){  //fix 
+        //         return $user->email === 'officer@med.si';
+        // });
+
+        // Gate::define('create_case',function(User $user){  // check จาก table abilities , roles ,users
+        //         return $user->abilities->contains('create_case');
+        // });
+
+        // Gate::define('view_any_cases',function(User $user){
+        //     return $user->abilities->contains('view_any_cases');
+        // });
+
+        // Gate::define('exam',function(User $user, OPDCard $opdcard){
+        //         \Log::info('1111');
+        //         return $opdcard->triage;
+        //         //return flase;
+        // });
 
       
     }

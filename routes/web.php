@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\Route;
 require __DIR__.'/auth.php';
 
 Route::get('/', [OPDCardsController::class, 'index'])
-     ->middleware('auth');
+     ->middleware('auth','can:view_any_cases');
 Route::get('/create', [OPDCardsController::class, 'create'])
-     ->middleware('auth','can:create-case');
+     ->middleware('auth','can:create_case');
 Route::post('/', [OPDCardsController::class, 'store'])
-     ->middleware('auth','can:create-case');
+     ->middleware('auth','can:create_case');
 Route::delete('/{opdcard}', [OPDCardsController::class, 'destroy'])
      ->middleware('auth');
 

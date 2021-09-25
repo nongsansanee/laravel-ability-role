@@ -5,7 +5,7 @@
 
 @section('content')
 
-@can('create-case')
+@can('create_case')
 <button style="margin-right: 1rem;">
     <a href="{{ url('/create') }}">New Case</a>
 </button>
