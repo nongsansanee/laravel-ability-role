@@ -17,6 +17,7 @@
 <hr>
 
 @foreach ($opdcards as $card)
+@canany(['view_any_cases','view_gp_case','view_er_case'],$card)
 <div style="margin: 2rem 0 2rem 0; display: flex">
     <div style="width: 40%">
         <span style="margin-right: 1rem;">{{ $card->id }}</span>
@@ -56,6 +57,7 @@
         @endif
     </div>
 </div>
+@endcan
 @endforeach
 
 @endsection
