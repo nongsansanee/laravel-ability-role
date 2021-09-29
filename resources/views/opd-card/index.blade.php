@@ -56,6 +56,9 @@
         @endif
     </div>
 </div>
+<script>
+    var opdcardsJSON = @json($opdcardsJSON)
+</script>
 @endforeach
 
 @endsection
